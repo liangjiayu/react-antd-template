@@ -19,5 +19,16 @@ export default [
   },
   { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
   { path: '/', redirect: '/welcome' },
+  {
+    path: '/system',
+    name: '系统管理',
+    routes: [
+      {
+        path: '/system/user',
+        name: '用户管理',
+        component: './system/user',
+      },
+    ],
+  },
   { component: './404' },
 ];

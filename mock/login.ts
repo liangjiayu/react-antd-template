@@ -8,6 +8,12 @@ const waitTime = (time: number = 1000) => {
   });
 };
 
+let access = '';
+
+const getAccess = () => {
+  return access;
+};
+
 export default {
   'POST /api/user/login': async (req: Request, res: Response) => {
     await waitTime();
@@ -18,6 +24,7 @@ export default {
         message: 'success',
         success: true,
       });
+      access = 'admin';
       return;
     }
 
@@ -26,6 +33,7 @@ export default {
         message: 'success',
         success: true,
       });
+      access = 'user';
       return;
     }
 
@@ -34,6 +42,7 @@ export default {
         message: 'success',
         success: true,
       });
+      access = 'admin';
       return;
     }
 
@@ -58,6 +67,14 @@ export default {
   },
 
   'GET /api/user/getUserInfo': async (req: Request, res: Response) => {
+    if (!getAccess()) {
+      res.status(401).send({
+        message: '请先登录！',
+        success: true,
+      });
+      return;
+    }
+
     res.send({
       message: 'success',
       success: true,
@@ -67,6 +84,7 @@ export default {
         userid: '007',
         email: '123456@qq.com',
         phone: '10086',
+        access: getAccess(),
       },
     });
   },

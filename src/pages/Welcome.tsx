@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Card, Alert, Typography } from 'antd';
+import { Card, Alert, Typography, Button } from 'antd';
+import { useModel } from 'umi';
 
 const CodePreview: React.FC = ({ children }) => (
   <pre
@@ -18,7 +19,9 @@ const CodePreview: React.FC = ({ children }) => (
   </pre>
 );
 
-export default (): React.ReactNode => {
+const Welcome: React.FC = () => {
+  const { count, addCount, reduceCount } = useModel('count');
+
   return (
     <PageContainer>
       <Card>
@@ -32,8 +35,25 @@ export default (): React.ReactNode => {
             marginBottom: 24,
           }}
         />
+        <div>
+          <span>models {count} </span>
+          <Button
+            onClick={() => {
+              addCount();
+            }}
+          >
+            add
+          </Button>
+          <Button
+            onClick={() => {
+              reduceCount();
+            }}
+          >
+            reduce
+          </Button>
+        </div>
         <Typography.Text strong>
-          高级表格{' '}
+          高级表格
           <a
             href="https://procomponents.ant.design/components/table"
             rel="noopener noreferrer"
@@ -63,3 +83,5 @@ export default (): React.ReactNode => {
     </PageContainer>
   );
 };
+
+export default Welcome;

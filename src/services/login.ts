@@ -15,7 +15,7 @@ export async function outLogin(data: any) {
 }
 
 export async function getUserInfo(params: any) {
-  return request('/api/user/getUserInfo', {
+  return request<{ data: API.CurrentUser }>('/api/user/getUserInfo', {
     method: 'GET',
     params,
   });

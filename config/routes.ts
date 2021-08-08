@@ -26,7 +26,7 @@ export default [
       { path: '/admin/sub-page', name: '二级管理页', icon: 'smile', component: './Welcome' },
     ],
   },
-  { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
+  // { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
   { path: '/', redirect: '/welcome' },
   {
     path: '/system',

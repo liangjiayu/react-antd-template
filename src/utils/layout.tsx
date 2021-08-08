@@ -11,7 +11,7 @@ const loginPath = '/user/login';
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     rightContentRender: () => <RightContent />,
-    // disableContentMargin: false,
+    disableContentMargin: false,
     waterMarkProps: {
       content: initialState?.currentUser?.name,
     },

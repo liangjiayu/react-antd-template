@@ -30,19 +30,22 @@ export default defineConfig({
   },
   // esbuild is father build tools
   // https://umijs.org/plugins/plugin-esbuild
-  esbuild: {},
-  title: false,
-  ignoreMomentLocale: true,
+  // esbuild: {},
+  // title: false,
+  // ignoreMomentLocale: true,
   proxy: proxy[REACT_APP_ENV || 'dev'],
-  manifest: {
-    basePath: '/',
-  },
+  // manifest: {
+  //   basePath: '/',
+  // },
   // Fast Refresh 热更新
-  fastRefresh: {},
+  // fastRefresh: {},
   nodeModulesTransform: {
     type: 'none',
   },
-  mfsu: {},
-  webpack5: {},
-  exportStatic: {},
+  history: {
+    type: 'hash',
+  },
+  // mfsu: {},
+  // webpack5: {},
+  // exportStatic: {},
 });

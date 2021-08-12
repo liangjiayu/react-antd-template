@@ -3,9 +3,9 @@ import { Link, history } from 'umi';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
 import { BookOutlined } from '@ant-design/icons';
+import baseConfig from './config';
 
 const isDev = process.env.NODE_ENV === 'development';
-const loginPath = '/user/login';
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
@@ -19,8 +19,8 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
-      if (!initialState?.currentUser && location.pathname !== loginPath) {
-        history.push(loginPath);
+      if (!initialState?.currentUser && location.pathname !== baseConfig.loginPath) {
+        history.push(baseConfig.loginPath);
       }
     },
     links: isDev

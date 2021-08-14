@@ -15,6 +15,37 @@ const getAccess = () => {
 };
 
 export default {
+  'POST /api/post/test': async (req: Request, res: Response) => {
+    const { flag } = req.body;
+
+    if (flag === 'http_error') {
+      return res.status(500).send({
+        message: 'http_error',
+        code: 9999,
+      });
+    }
+
+    if (flag === 'biz_error') {
+      return res.send({
+        message: '业务错误，如订单已经被删除',
+        code: 500,
+      });
+    }
+
+    if (flag === 'success') {
+      return res.send({
+        message: 'success',
+        code: 200,
+        data: { list: [] },
+      });
+    }
+
+    return res.send({
+      message: 'success',
+      success: true,
+      data: req.body,
+    });
+  },
   'POST /api/user/login': async (req: Request, res: Response) => {
     await waitTime();
     const { password, username, type } = req.body;

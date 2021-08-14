@@ -2,8 +2,7 @@ import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
 import { history } from 'umi';
 import { getUserInfo } from '../services/login';
-
-const loginPath = '/user/login';
+import baseConfig from './config';
 
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
@@ -23,12 +22,12 @@ export async function getInitialState(): Promise<{
       const result = await getUserInfo({});
       return result.data;
     } catch (error) {
-      history.push(loginPath);
+      history.push(baseConfig.loginPath);
     }
     return undefined;
   };
   // 如果是登录页面，不执行
-  if (history.location.pathname !== loginPath) {
+  if (history.location.pathname !== baseConfig.loginPath) {
     const currentUser = await fetchUserInfo();
     return {
       fetchUserInfo,

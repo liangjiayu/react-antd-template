@@ -15,8 +15,16 @@ export default [
       },
     ],
   },
-  { path: '/', redirect: '/welcome' },
-  { path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome' },
+  {
+    path: '/',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
+    name: '首页',
+    icon: 'smile',
+    component: './Home',
+  },
   {
     path: '/admin',
     name: '管理页',
@@ -27,6 +35,7 @@ export default [
   {
     path: '/system',
     name: '系统管理',
+    icon: 'UserOutlined',
     routes: [
       {
         path: '/system/UserList',

@@ -46,6 +46,7 @@ export default {
       data: req.body,
     });
   },
+
   'POST /api/user/login': async (req: Request, res: Response) => {
     await waitTime();
     const { password, username, type } = req.body;

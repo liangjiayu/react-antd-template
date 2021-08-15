@@ -63,7 +63,7 @@ const addParamsInterceptor = (url: string, options: RequestOptionsInit) => {
 const errorResponseInterceptors = async (response: Response) => {
   if (response.status === 200) {
     const data = await response.clone().json();
-    // { code:500, message:'xxxx' , data:null } 根据业务的数据结构做调整Î
+    // { code:500, message:'xxxx' , data:null } 根据业务的数据结构做调整
     if (data.code === 500) {
       throw new BizError(data.message || 'Biz_Error', data);
     }

@@ -1,10 +1,10 @@
 # react-antd-template
 
-基于`ant-pro-v5`做开发，移除非常用的模块，并且预留一些基础配置，从而做到开箱即用
+基于`ant-pro-v5`做二次开发，移除不常用的模块，并且预留一些基础配置，从而做到开箱即用。
 
 [antd-文档](https://beta-pro.ant.design/docs/getting-started-cn)
 
-### 特性
+### 特性 🌟
 
 - 移除多语言模块
 - 移除单元测试
@@ -16,7 +16,7 @@
 ```shell
 git clone git@github.com:liangjiayu/react-antd-template.git
 
-npm i
+npm i // 安装依赖
 npm run start  // 开发
 npm run build  // 打包
 
@@ -28,7 +28,7 @@ npm run lint:fix
 
 中后台项目是离不开后端服务的，所以初始化项目的时候，根据后端协议，修改对应的模块。
 
-- 登录、获取用户信息，根据公司的登录方案，做对应的调整
+- 登录、获取用户信息，根据公司的登录方案，做对应的调整。
 - `initialState`，初始化项目状态。`layout`，全局布局。
 - `request`，预留了请求前的拦截器、响应拦截器，定义了`HttpError`、`BizError`，两种基础的错误类型，根据业务的数据结构做对应的调整。
 - 开发建议，菜单和`pages`的文件目录、路由最好一一对应。
